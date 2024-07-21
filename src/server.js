@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const userRouter = require("./routes/userRoute");
+const productRouter = require("./routes/productRoute");
 require("dotenv").config();
 const { MONGO_URL, PORT } = process.env;
 
@@ -10,6 +11,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.use("/api/user", userRouter);
+app.use("/api/product", productRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
