@@ -36,11 +36,9 @@ productRouter.get("/get-all", async (req, res) => {
 });
 
 productRouter.get("/get-by-id/:id", async (req, res) => {
-  console.log(req.params);
   try {
     let id = req.params.id;
     let product = await Product.findById(id);
-    console.log(product);
     res.status(200).send({
       success: true,
       message: "Product successfully fetched",
